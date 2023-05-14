@@ -1,0 +1,128 @@
+{
+	"id": null,
+	"autoCreated": false,
+	"kind": "correlationRule",
+	"name": "test_private_api2",
+	"description": "",
+	"payload": {
+		"selectors": [
+			{
+				"tag": null,
+				"filter": {
+					"root": {
+						"group": true,
+						"not": null,
+						"or": null,
+						"conditions": [
+							{
+								"group": null,
+								"not": false,
+								"or": false,
+								"conditions": [],
+								"leftKind": "event",
+								"leftShared": false,
+								"leftID": null,
+								"leftField": "DeviceVendor",
+								"leftTICategory": null,
+								"leftTIField": null,
+								"leftKeys": [],
+								"leftEvent": null,
+								"op": "=",
+								"sourceOp": "",
+								"rightKind": "constant",
+								"rightShared": false,
+								"rightID": null,
+								"rightField": null,
+								"rightTICategory": null,
+								"rightTIField": null,
+								"rightEvent": null,
+								"rightKeys": [],
+								"constant": "Microsoft",
+								"list": [],
+								"ignoreCase": false,
+								"vulns": {
+									"cves": null,
+									"minSeverity": 0
+								},
+								"tenantName": ""
+							}
+						],
+						"leftKind": null,
+						"leftShared": null,
+						"leftID": null,
+						"leftField": null,
+						"leftTICategory": null,
+						"leftTIField": null,
+						"leftKeys": [],
+						"leftEvent": null,
+						"op": null,
+						"sourceOp": "",
+						"rightKind": null,
+						"rightShared": null,
+						"rightID": null,
+						"rightField": null,
+						"rightTICategory": null,
+						"rightTIField": null,
+						"rightEvent": null,
+						"rightKeys": [],
+						"constant": "",
+						"list": [],
+						"ignoreCase": null,
+						"vulns": {
+							"cves": null,
+							"minSeverity": null
+						},
+						"tenantName": ""
+					},
+					"publish": null,
+					"id": null,
+					"name": "eb01eb1a-7ae7-4511-8faa-1313561c4e9a",
+					"kind": "",
+					"description": null,
+					"updatedAt": 0,
+					"shared": null,
+					"tenantID": null,
+					"tenantName": ""
+				},
+				"threshold": null,
+				"recovery": null,
+				"variables": [],
+				"tenantName": ""
+			}
+		],
+		"identicalFields": [
+			"DeviceVendor"
+		],
+		"uniqueFields": [],
+		"window": null,
+		"keepPolicy": null,
+		"priority": 1,
+		"rateLimit": null,
+		"actions": {
+			"onEveryEvent": {
+				"tenantName": "",
+				"phantomId": "80196f53-7777-4d80-8330-5ab72ba54996",
+				"output": true,
+				"loop": null,
+				"noAlert": true,
+				"activeLists": [],
+				"enrichment": [],
+				"categorization": []
+			}
+		},
+		"updatedAt": 0,
+		"orderField": null,
+		"id": null,
+		"name": "test_private_api",
+		"kind": "simple",
+		"description": "",
+		"publish": false,
+		"shared": null,
+		"tenantID": "2d837e5c-c120-439c-844b-b942bc34db2a",
+		"tenantName": ""
+	},
+	"folderID": "622f0c42-ba18-4831-bb1d-e4d4084f0f74",
+	"tenantID": "2d837e5c-c120-439c-844b-b942bc34db2a",
+	"tenantName": "",
+	"toResources": []
+}
