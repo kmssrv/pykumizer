@@ -4,7 +4,7 @@ import json
 with open('rule.json') as f:
     rule = json.load(f)
 
-kuma = Kuma("kuma.kogorta.lab", "komissarov", "KLaapt-M1")
+kuma = Kuma("kuma.kogorta.lab", "komissarov", "<PASSWORD>")
 tenant_id = kuma.get_tenant_id_by_name('Main')
 correlation_rule_id = kuma.add_correlation_rule(rule)
 correlator_id = kuma.get_correlator_id_by_name('test name234', tenant_id)
