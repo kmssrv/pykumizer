@@ -23,8 +23,11 @@ Examples
 # Get tenant ID by name
 tenant_id = kuma.get_tenant_id_by_name('Main')
 
+# Get folder ID by name and subkind of resource
+folder_id = kuma.get_folder_id_by_name('KOMISSAROV', 'correlationRule')
+
 # Add correlation rule to resourses. Rule is json object.
-correlation_rule_id = kuma.add_correlation_rule(rule)
+correlation_rule_id = kuma.add_correlation_rule(rule, folder_id)
 
 # Get correlatror ID by name
 correlator_id = kuma.get_correlator_id_by_name('[OOTB] Correlator', tenant_id)
