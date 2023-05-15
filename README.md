@@ -21,6 +21,7 @@ python3 -m pip install dist/pykumizer-<version>-py3-none-any.whl
 Go to examples and replace credentials in add_correlation_rule.py file with your own
 ```
 cd examples/
+vi add_correlation_rule.py
 ```
 Execute the script
 ```
