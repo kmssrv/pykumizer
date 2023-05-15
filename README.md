@@ -1,8 +1,13 @@
-# Pykumizer
+# Pykumizer: python wrapper for KUMA API
+**English version below**
+
+Pykumizer - это инстирументы и примеры работы с закрытым API KUMA 2.1.
+В KUMA 3.0 ожидаются улчшения API. А пока использую python requests для некоторых задач.
+
 Pykumizer is a repository containing tools and examples that cover various approaches to automating actions when working with the SIEM KUMA (Kaspersky Unified and Analysis Platform).
-Wrapper for working with the private API of Kaspersky Unified and Analysis Platform 2.1.
+
 # KUMA private API
-The Python package pykumizer contains methods for accessing the hidden private API of KUMA for various actions.
+The Python package pykumizer is a wrapper for working with the private API of KUMA that  contains methods for accessing the hidden private API of KUMA for various actions.
 ## Usage
 Install package
 ```
