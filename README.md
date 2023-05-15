@@ -7,62 +7,69 @@ Pykumizer - это инструменты и примеры работы с за
 Pykumizer is a repository containing tools and examples that cover various approaches to automating actions when working with the SIEM KUMA (Kaspersky Unified and Analysis Platform).
 
 # KUMA private API
-The Python package pykumizer is a wrapper for working with the private API of KUMA that  contains methods for accessing the hidden private API of KUMA for various actions.
+The Python package pykumizer is a wrapper for working with the private API of KUMA. It contains methods for accessing the hidden private API of KUMA for various actions.
+
 ## Usage
-Install package
+Install the package
 ```
 git clone https://github.com/kmssrv/pykumizer.git
 cd pykumizer/
 python3 -m pip install dist/pykumizer-<version>-py3-none-any.whl
 ```
-## Quick start
 
-Go to examples and replace credentials in add_correlation_rule.py file with own
-```commandline
+## Quick start
+Go to examples and replace credentials in add_correlation_rule.py file with your own
+```
 cd examples/
 ```
-Execute script
-```commandline
+Execute the script
+```
 python3 add_correlation_rule.py
 ```
-Test rule will be added to resources and linked to correlator.
+
+A test rule will be added to resources and linked to the correlator.
 ![example.png](img%2Fexample.png)
 
-Rule must be in KUMA json format.
-By default script uses:
+The rule must be in KUMA JSON format. By default, the script uses:
 1. Tenant: 'Main'
 2. Correlator: '[OOTB] Correlator'
 3. Folder in correlation rules list: '[OOTB]'.
 
-## Use module in own scripts
-Import module to your python script
+## Use the module in your own scripts
+Import the module to your Python script
 ```
 from pykumizer import Kuma
 ```
-Create kuma object by providing address of KUMA core installation, username and password
-```commandline
+Create a Kuma object by providing the address of the KUMA core installation, username, and password
+```
 kuma = Kuma("kuma.kogorta.lab", "admin", "<password>")
 ```
-Examples
-```commandline
-# Get tenant ID by name
+### Examples
+Get the tenant ID by name
+```
 tenant_id = kuma.get_tenant_id_by_name('Main')
-
-# Get folder ID by name and subkind of resource
+```
+Get the folder ID by name and subkind of resource
+```
 folder_id = kuma.get_folder_id_by_name('KOMISSAROV', 'correlationRule')
-
-# Add correlation rule to resourses. Rule is json object.
+```
+Add a correlation rule to resources. The rule is a JSON object.
+```
 correlation_rule_id = kuma.add_correlation_rule(rule, folder_id)
-
-# Get correlatror ID by name
+```
+Get the correlator ID by name
+```
 correlator_id = kuma.get_correlator_id_by_name('[OOTB] Correlator', tenant_id)
-
-# Link correlation rule to correlator. Rule must be added to recorse first.
+```
+Link the correlation rule to the correlator. The rule must be added to resources first.
+```
 kuma.link_rule(correlator_id, correlation_rule_id)
-
-# Get service ID by resourse ID
-service_id = kuma.get_service_id_by_resouce_id(correlator_id)
-
-# Reload service using service ID
+```
+Get the service ID by resource ID
+```
+service_id = kuma.get_service_id_by_resource_id(correlator_id)
+```
+Reload the service using the service ID
+```
 kuma.reload_service(service_id)
 ```
