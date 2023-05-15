@@ -8,7 +8,7 @@ Install package
 ```
 git clone https://github.com/kmssrv/pykumizer.git
 cd pykumizer/
-python3 -m pip install dist/pykumizer-0.0.1-py3-none-any.whl
+python3 -m pip install dist/pykumizer-<version>-py3-none-any.whl
 ```
 Import module to your python script
 ```
