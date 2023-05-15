@@ -35,19 +35,26 @@ class Kuma:
     logging.info('response code: %s', response)
     logging.info('response text: %s', response.text)
 
+    self.tenant_id = self.get_tenant_id_by_name('Main')
+    logging.info('Main tenant ID: %s', self.tenant_id)
 
   def logout(self):
+    logging.info('logout')
     url = self.url+"/api/logout"
     response = self.session.post(url, verify=False)
+    logging.info('url: %s', url)
+    logging.info('response code: %s', response)
+    logging.info('response text: %s', response.text)
 
   def add_correlation_rule(self, rule, folder_id):
     logging.info('add_correlation_rule')
     logging.info('folder_id: %s', folder_id)
     url = self.url+"/api/private/resources/correlationRule"
     rule['folderID'] = folder_id
+    rule['tenantID'] = self.tenant_id
     payload = json.dumps(rule)
     response = self.session.post(url, data=payload)
-    correlation_rule_id = self.get_rule_id_by_name(rule['name'], rule['tenantID'])
+    correlation_rule_id = self.get_correlation_rule_id_by_name(rule['name'])
     logging.info('url: %s', url)
     logging.info('response code: %s', response)
     logging.info('response text: %s', response.text)
@@ -60,11 +67,16 @@ class Kuma:
       if tenant['name'] == name:
         return tenant['id']
 
-  def get_rule_id_by_name(self, name, tenant_id):
-    url = self.url+"/api/private/resources/correlationRule?tenantID="+tenant_id
+  def get_correlation_rule_id_by_name(self, name):
+    logging.info('get_correlation_rule_id_by_name')
+    url = self.url+"/api/private/resources/correlationRule"
     response = self.session.get(url)
+    logging.info('url: %s', url)
+    logging.info('response code: %s', response)
+    logging.info('response text: %s', response.text)
     for rule in response.json():
       if rule['name'] == name:
+        logging.info('ID of %s is %s', name, rule['id'])
         return rule['id']
   def delete_rule(self, rule_id):
     url = self.url+"/api/private/resources/correlationRule"
@@ -72,8 +84,8 @@ class Kuma:
     print(json.dumps(payload))
     response = self.session.delete(url, data=payload)
 
-  def get_correlator_id_by_name(self, name, tenant_id):
-    url = self.url+"/api/private/resources/correlator?tenantID="+tenant_id
+  def get_correlator_id_by_name(self, name):
+    url = self.url+"/api/private/resources/correlator?tenantID="+self.tenant_id
     response = self.session.get(url)
     for correlator in response.json():
       if correlator['name'] == name:
