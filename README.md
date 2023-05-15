@@ -2,7 +2,7 @@
 Pykumizer is a repository containing tools and examples that cover various approaches to automating actions when working with the SIEM KUMA (Kaspersky Unified and Analysis Platform).
 Wrapper for working with the private API of Kaspersky Unified and Analysis Platform 2.1.
 # KUMA private API
-The Python package pykumizer-0.0.1-py3-none-any.whl contains methods for accessing the hidden private API of KUMA for various actions.
+The Python package pykumizer contains methods for accessing the hidden private API of KUMA for various actions.
 ## Usage
 Install package
 ```
@@ -10,6 +10,26 @@ git clone https://github.com/kmssrv/pykumizer.git
 cd pykumizer/
 python3 -m pip install dist/pykumizer-<version>-py3-none-any.whl
 ```
+## Quick start
+
+Go to examples and replace credentials in add_correlation_rule.py file with own
+```commandline
+cd examples/
+```
+Execute script
+```commandline
+python3 add_correlation_rule.py
+```
+Test rule will be added to resources and linked to correlator.
+![example.png](img%2Fexample.png)
+
+Rule must be in KUMA json format.
+By default script uses:
+1. Tenant: 'Main'
+2. Correlator: '[OOTB] Correlator'
+3. Folder in correlation rules list: '[OOTB]'.
+
+## Use module in own scripts
 Import module to your python script
 ```
 from pykumizer import Kuma
