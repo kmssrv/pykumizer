@@ -69,7 +69,8 @@ class Kuma:
 
   def get_correlation_rule_id_by_name(self, name):
     logging.info('get_correlation_rule_id_by_name')
-    url = self.url+"/api/private/resources/correlationRule"
+    #Only 250 items are returned by default. The parameter 'size' needs to be specified. Thanks to Igor.
+    url = self.url+"/api/private/resources/correlationRule?size=999999"
     response = self.session.get(url)
     logging.info('url: %s', url)
     logging.info('response code: %s', response)
