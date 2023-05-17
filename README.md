@@ -74,3 +74,10 @@ Reload the service using the service ID
 ```
 kuma.reload_service(service_id)
 ```
+# Updates
+#### 17.05.2023 v0.0.4 
+Fix: get_correlation_rule_id_by_name()
+
+Only 250 items are returned by default. The parameter 'size' needs to be specified. Thanks to Igor!
+
+New example: add 500 random rules.
